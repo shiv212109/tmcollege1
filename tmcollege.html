@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>T.M. College | Best Coaching for Teaching & Competitive Exams</title>
+    <!-- Google Fonts + Font Awesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #ffffff;
+            color: #1e293b;
+            line-height: 1.5;
+            overflow-x: hidden;
+        }
+
+        /* custom scroll */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #e11d48;
+            border-radius: 10px;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* buttons with hover animation */
+        .btn-primary {
+            display: inline-block;
+            background-color: #e11d48;
+            color: white;
+            font-weight: 600;
+            padding: 12px 28px;
+            border-radius: 40px;
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            box-shadow: 0 8px 16px -6px rgba(225, 29, 72, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-primary::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+        .btn-primary:hover::after {
+            left: 100%;
+        }
+        .btn-primary:hover {
+            background-color: #be123c;
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 15px 25px -10px rgba(225, 29, 72, 0.4);
+        }
+        .btn-outline {
+            display: inline-block;
+            background: transparent;
+            border: 2px solid #e11d48;
+            color: #e11d48;
+            font-weight: 600;
+            padding: 10px 26px;
+            border-radius: 40px;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        .btn-outline:hover {
+            background: #e11d48;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* top bar */
+        .top-bar {
+            background-color: #0f172a;
+            color: #e2e8f0;
+            padding: 10px 0;
+            font-size: 0.85rem;
+        }
+        .top-bar .container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .contact-info span {
+            margin-right: 24px;
+        }
+        .social-icons a {
+            color: #e2e8f0;
+            margin-left: 16px;
+            transition: 0.2s;
+            display: inline-block;
+        }
+        .social-icons a:hover {
+            color: #e11d48;
+            transform: translateY(-2px) rotate(5deg);
+        }
+
+        /* navigation with custom logo */
+        .main-nav {
+            background: white;
+            padding: 16px 0;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .nav-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .logo-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, #e11d48 0%, #be123c 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.8rem;
+            font-weight: 800;
+            box-shadow: 0 4px 10px rgba(225,29,72,0.3);
+        }
+        .logo-text h1 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #0f172a;
+            line-height: 1.2;
+        }
+        .logo-text span {
+            color: #e11d48;
+        }
+        .logo-text p {
+            font-size: 0.65rem;
+            letter-spacing: 1px;
+            font-weight: 500;
+            color: #475569;
+        }
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+        }
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 600;
+            color: #1e293b;
+            transition: 0.2s;
+            position: relative;
+        }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0%;
+            height: 2px;
+            background: #e11d48;
+            transition: width 0.3s ease;
+        }
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        .nav-links a:hover {
+            color: #e11d48;
+        }
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            background: none;
+            border: none;
+            transition: transform 0.2s;
+        }
+        .mobile-menu-btn:hover {
+            transform: scale(1.1);
+        }
+
+        /* Hero Section with proper responsive image */
+        .hero {
+            background: linear-gradient(105deg, #fef9f5 0%, #fff3ed 100%);
+            padding: 60px 0 40px;
+            overflow: hidden;
+        }
+        .hero-grid {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+        .hero-content {
+            flex: 1;
+        }
+        .hero-badge {
+            background: #ffe4e6;
+            display: inline-block;
+            padding: 6px 18px;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #e11d48;
+            margin-bottom: 20px;
+            animation: pulseGlow 2s infinite;
+        }
+        @keyframes pulseGlow {
+            0% { box-shadow: 0 0 0 0 rgba(225,29,72,0.2); transform: scale(1);}
+            70% { box-shadow: 0 0 0 10px rgba(225,29,72,0); transform: scale(1.02);}
+            100% { box-shadow: 0 0 0 0 rgba(225,29,72,0); transform: scale(1);}
+        }
+        .hero-content h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 16px;
+        }
+        .hero-highlight {
+            color: #e11d48;
+            position: relative;
+            display: inline-block;
+        }
+        .hero-highlight::after {
+            content: '';
+            position: absolute;
+            bottom: 5px;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            background: #ffe4e6;
+            z-index: -1;
+            border-radius: 20px;
+        }
+        .hero-desc {
+            font-size: 1.1rem;
+            color: #334155;
+            margin: 20px 0 30px;
+            max-width: 550px;
+        }
+        .hero-image {
+            flex: 1;
+            text-align: center;
+        }
+        .hero-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 32px;
+            box-shadow: 0 25px 40px -12px rgba(0,0,0,0.15);
+            animation: floatImage 4s ease-in-out infinite;
+        }
+        @keyframes floatImage {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-12px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* stats counter animation */
+        .stats {
+            background: #0f172a;
+            color: white;
+            padding: 40px 0;
+        }
+        .stats-grid {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 30px;
+            text-align: center;
+        }
+        .stat-item h3 {
+            font-size: 2.8rem;
+            font-weight: 800;
+        }
+
+        /* cards hover animations */
+        .mv-card, .teach-card, .feature, .testimonial-card, .qr-box {
+            transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+        }
+        .mv-card:hover, .teach-card:hover, .feature:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 30px -12px rgba(225,29,72,0.15);
+        }
+        .teach-card i, .mv-card i {
+            transition: transform 0.3s;
+        }
+        .teach-card:hover i, .mv-card:hover i {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        /* sections */
+        .about, .teaching, .why-us, .testimonial, .payment-section {
+            padding: 80px 0;
+        }
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 16px;
+        }
+        .section-sub {
+            text-align: center;
+            color: #475569;
+            max-width: 680px;
+            margin: 0 auto 48px;
+        }
+        .about-grid {
+            display: flex;
+            gap: 48px;
+            flex-wrap: wrap;
+        }
+        .mv-card {
+            background: #f8fafc;
+            padding: 28px;
+            border-radius: 24px;
+            margin-bottom: 24px;
+        }
+        .teaching-cards {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+        }
+        .teach-card {
+            background: white;
+            border-radius: 28px;
+            padding: 30px 24px;
+            text-align: center;
+            flex: 1;
+            min-width: 220px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.02);
+            border: 1px solid #f1f1f1;
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 32px;
+            margin-top: 40px;
+        }
+        .feature {
+            text-align: center;
+            padding: 30px 16px;
+            background: #ffffff;
+            border-radius: 28px;
+            border: 1px solid #f0f0f0;
+        }
+        .testimonial-card {
+            background: white;
+            border-radius: 32px;
+            padding: 40px;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            box-shadow: 0 20px 30px -15px rgba(0,0,0,0.05);
+        }
+        .cta-section {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .payment-grid {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 50px;
+            justify-content: center;
+        }
+        .qr-box {
+            text-align: center;
+            background: #f8fafc;
+            padding: 30px;
+            border-radius: 32px;
+        }
+        .qr-box img {
+            max-width: 180px;
+            height: auto;
+        }
+        .footer {
+            background: #0f172a;
+            color: #cbd5e1;
+            padding: 50px 0 20px;
+        }
+        .footer-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        .enquiry-fixed {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            background: #e11d48;
+            color: white;
+            padding: 14px 22px;
+            border-radius: 60px;
+            font-weight: bold;
+            z-index: 99;
+            border: none;
+            cursor: pointer;
+            animation: bounceEnquiry 1.5s infinite;
+            box-shadow: 0 8px 18px rgba(0,0,0,0.2);
+            transition: transform 0.2s;
+        }
+        .enquiry-fixed:hover {
+            transform: scale(1.05);
+            animation: none;
+        }
+        @keyframes bounceEnquiry {
+            0%,100%{ transform: translateY(0);}
+            50%{ transform: translateY(-6px);}
+        }
+
+        /* Responsive */
+        @media (max-width: 880px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background: white;
+                padding: 20px;
+                gap: 16px;
+                margin-top: 16px;
+            }
+            .nav-links.show {
+                display: flex;
+            }
+            .mobile-menu-btn {
+                display: block;
+            }
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+            .section-title {
+                font-size: 1.8rem;
+            }
+            .hero-grid {
+                flex-direction: column;
+                text-align: center;
+            }
+            .hero-desc {
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .logo-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 1.4rem;
+            }
+            .logo-text h1 {
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .hero-content h1 {
+                font-size: 1.8rem;
+            }
+            .stat-item h3 {
+                font-size: 2rem;
+            }
+            .container {
+                padding: 0 20px;
+            }
+            .about, .teaching, .why-us, .testimonial, .payment-section {
+                padding: 50px 0;
+            }
+            .section-title {
+                font-size: 1.6rem;
+            }
+            .top-bar .container {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            .contact-info span {
+                display: inline-block;
+                margin: 5px 10px;
+            }
+        }
+        @media (max-width: 480px) {
+            .hero-image img {
+                width: 100%;
+                object-fit: cover;
+            }
+            .btn-primary, .btn-outline {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="top-bar">
+    <div class="container">
+        <div class="contact-info">
+            <span><i class="fas fa-phone-alt"></i> +91 9971323838</span>
+            <span><i class="fas fa-envelope"></i> Tmcollegerohini@gmail.com</span>
+        </div>
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+    </div>
+</div>
+
+<div class="main-nav">
+    <div class="container nav-flex">
+        <div class="logo" data-aos="fade-right">
+            <div class="logo-icon">TM</div>
+            <div class="logo-text">
+                <h1>T.M. <span>College</span></h1>
+                <p>OF COMPETITIONS</p>
+            </div>
+        </div>
+        <button class="mobile-menu-btn" id="mobileMenuBtn"><i class="fas fa-bars"></i></button>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Courses</a></li>
+            <li><a href="#">Franchise</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </div>
+</div>
+
+<section class="hero">
+    <div class="container hero-grid">
+        <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
+            <span class="hero-badge"><i class="fas fa-chalkboard-user"></i> Learn, Grow, Achieve</span>
+            <h1>Learning Together, <span class="hero-highlight">Growing Together</span></h1>
+            <p class="hero-desc">We believe that education is the key to unlocking the full potential of individuals, communities, and societies.</p>
+            <a href="#" class="btn-primary">Book Your Demo Class <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="hero-image" data-aos="fade-left" data-aos-duration="1000">
+            <img src="image/tmcollege.png" alt="T.M. College Campus">
+        </div>
+    </div>
+</section>
+
+<div class="stats">
+    <div class="container stats-grid">
+        <div class="stat-item" data-aos="zoom-in" data-aos-delay="0"><h3 id="stat1">0</h3><p>Years Of Excellence</p></div>
+        <div class="stat-item" data-aos="zoom-in" data-aos-delay="100"><h3 id="stat2">0</h3><p>Students Trained</p></div>
+        <div class="stat-item" data-aos="zoom-in" data-aos-delay="200"><h3 id="stat3">0</h3><p>Expert Faculty</p></div>
+    </div>
+</div>
+
+<section class="about">
+    <div class="container">
+        <h2 class="section-title" data-aos="fade-up">Welcome to T.M. COLLEGE Private Limited</h2>
+        <p class="section-sub" data-aos="fade-up" data-aos-delay="100">Empowering future educators since 2007</p>
+        <div class="about-grid">
+            <div class="about-text" data-aos="fade-right">
+                <p style="font-size:1.05rem; margin-bottom:20px;"><strong>T.M. College of Competitions</strong> was founded by Mr. Chandan Singh and Mr. B.B. Sharma in 2007. A master of maths & a versatile commander of reasoning visioned an institution with a difference. Thanks to almighty God for bestowing T.M. College with profound blessing that inspire us to take it to higher zenith in future.</p>
+                <a href="#" class="btn-outline">Read More <i class="fas fa-long-arrow-alt-right"></i></a>
+            </div>
+            <div class="mission-vision" data-aos="fade-left">
+                <div class="mv-card"><i class="fas fa-bullseye"></i><h3>Our Mission</h3><p>High-quality, affordable & result-oriented coaching for teaching & competitive exams.</p></div>
+                <div class="mv-card"><i class="fas fa-eye"></i><h3>Our Vision</h3><p>Leading institute preparing highly skilled, knowledgeable teachers for the nation.</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="teaching" style="background:#f8fafc;">
+    <div class="container">
+        <h2 class="section-title" data-aos="fade-up">Unique Teaching Methods</h2>
+        <p class="section-sub">Innovative methodologies for diverse learning styles</p>
+        <div class="teaching-cards">
+            <div class="teach-card" data-aos="flip-left"><i class="fas fa-chalkboard"></i><h3>Conceptual Clarity</h3><p>Real-life applications & fundamentals.</p></div>
+            <div class="teach-card" data-aos="flip-left" data-aos-delay="100"><i class="fas fa-comments"></i><h3>Doubt Clearance</h3><p>Direct teacher interaction & quick solutions.</p></div>
+            <div class="teach-card" data-aos="flip-left" data-aos-delay="200"><i class="fas fa-brain"></i><h3>Smart Learning</h3><p>Digital tools + modern teaching aids.</p></div>
+            <div class="teach-card" data-aos="flip-left" data-aos-delay="300"><i class="fas fa-tasks"></i><h3>Weekly Tests</h3><p>Performance analysis & feedback.</p></div>
+        </div>
+    </div>
+</section>
+
+<section class="why-us">
+    <div class="container">
+        <h2 class="section-title" data-aos="fade-up">Why Choose T.M College</h2>
+        <div class="features-grid">
+            <div class="feature" data-aos="zoom-in-up"><div class="number">01</div><h4>Aims & Objectives</h4><p>Strong foundation & success roadmap.</p></div>
+            <div class="feature" data-aos="zoom-in-up" data-aos-delay="100"><div class="number">02</div><h4>Doubt Clearance</h4><p>Regular doubt sessions, instant clarity.</p></div>
+            <div class="feature" data-aos="zoom-in-up" data-aos-delay="200"><div class="number">03</div><h4>Positive Environment</h4><p>Curiosity, confidence & motivation.</p></div>
+            <div class="feature" data-aos="zoom-in-up" data-aos-delay="300"><div class="number">04</div><h4>Expert Faculty</h4><p>Experienced mentors, student-friendly approach.</p></div>
+        </div>
+        <div data-aos="fade-up" style="text-align:center; margin-top:50px;">
+            <h3 style="font-size:1.8rem;">We Are Best</h3>
+            <p style="max-width:700px; margin:16px auto;">At T.M. College, we deliver excellence in teaching & competitive exam preparation. Consistent results make us the most trusted institute.</p>
+        </div>
+    </div>
+</section>
+
+<section class="testimonial" style="background:#fef9f5;">
+    <div class="container">
+        <h2 class="section-title" data-aos="fade-up">Our Trusted Parents Feedback</h2>
+        <div class="testimonial-card" data-aos="flip-up">
+            <i class="fas fa-quote-left" style="font-size:2rem; color:#e11d48; opacity:0.4;"></i>
+            <p style="font-size:1.2rem; margin:20px 0;">“T.M. College transformed my child's confidence. Best faculty for reasoning & maths!”</p>
+            <h4>- Parent of Aspirant</h4>
+            <div class="google-placeholder" style="background:#f1f5f9; padding:16px; border-radius:24px; margin-top:20px;"><i class="fab fa-google"></i> ★★★★★ Trustindex Reviews – Our students’ success speaks volumes.</div>
+        </div>
+    </div>
+</section>
+
+<div class="cta-section">
+    <div class="container" data-aos="zoom-in">
+        <h2>Let’s get it done</h2>
+        <p style="font-size:1.2rem;">BOOK YOUR TEACHER TRAINING SESSION NOW</p>
+        <div class="cta-buttons" style="display:flex; gap:20px; justify-content:center; flex-wrap:wrap; margin-top:30px;">
+            <a href="#" class="btn-primary">Get Started <i class="fas fa-calendar-alt"></i></a>
+            <a href="#" class="btn-outline" style="background:white; color:#0f172a;">Own a Franchise</a>
+        </div>
+        <p style="margin-top:32px;">Own an Abacus / Vedic Math / Calligraphy Franchise and be part of Successful Network.</p>
+    </div>
+</div>
+
+<section class="payment-section">
+    <div class="container payment-grid">
+        <div class="qr-box" data-aos="flip-right">
+            <i class="fas fa-qrcode" style="font-size:2rem; color:#e11d48;"></i>
+            <h3>SCAN QR CODE FOR PAYMENT</h3>
+            <p>We accept payment through UPI</p>
+            <img src="https://placehold.co/200x200/e2e8f0/0f172a?text=QR+CODE" alt="UPI QR Code">
+        </div>
+        <div class="franchise-text" data-aos="fade-left">
+            <h3>Just Reach Us</h3>
+            <p><i class="fas fa-map-marker-alt"></i> POCKET C-7, DDA MKT., 1ST FLOOR, SECTOR-7, ROHINI, DELHI – 85 (NEAR ARYA SAMAJ MANDIR)</p>
+            <p><i class="fas fa-phone"></i> +91 9971323838 , +91 9313281230</p>
+            <p><i class="fas fa-envelope"></i> Tmcollegerohini@gmail.com</p>
+        </div>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-col"><h4>T.M. College</h4><p>Premium coaching for Teaching & Competitive Exams since 2007.</p></div>
+            <div class="footer-col"><h4>Quick Links</h4><p>About Us</p><p>Courses</p><p>Franchise Enquiry</p><p>Contact</p></div>
+            <div class="footer-col"><h4>Contact Info</h4><p><i class="fas fa-phone"></i> +91 9971323838</p><p><i class="fas fa-envelope"></i> tmcollegerohini@gmail.com</p></div>
+        </div>
+        <div class="copyright" style="text-align:center; border-top:1px solid #334155; padding-top:24px;">© 2026 T.M. College | All Rights Reserved</div>
+    </div>
+</footer>
+
+<button class="enquiry-fixed" id="enquiryBtn"><i class="fas fa-comment-dots"></i> ENQUIRY NOW</button>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    // Initialize AOS animations
+    AOS.init({ duration: 800, once: false, offset: 100, easing: 'ease-in-out' });
+    
+    // Counter animation for stats
+    function animateCounter(element, start, end, duration) {
+        let startTimestamp = null;
+        const step = (timestamp) => {
+            if (!startTimestamp) startTimestamp = timestamp;
+            const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+            element.innerText = Math.floor(progress * (end - start) + start);
+            if (progress < 1) {
+                window.requestAnimationFrame(step);
+            } else {
+                element.innerText = end;
+            }
+        };
+        window.requestAnimationFrame(step);
+    }
+    
+    // Trigger counters when stats section is visible
+    const statsSection = document.querySelector('.stats');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                animateCounter(document.getElementById('stat1'), 0, 18, 1500);
+                animateCounter(document.getElementById('stat2'), 0, 10000, 2000);
+                animateCounter(document.getElementById('stat3'), 0, 50, 1500);
+                observer.unobserve(statsSection);
+            }
+        });
+    }, { threshold: 0.5 });
+    if(statsSection) observer.observe(statsSection);
+    
+    // Mobile menu toggle
+    const menuBtn = document.getElementById('mobileMenuBtn');
+    const navLinks = document.getElementById('navLinks');
+    if(menuBtn) {
+        menuBtn.addEventListener('click', () => navLinks.classList.toggle('show'));
+    }
+    // Enquiry button alert
+    document.getElementById('enquiryBtn').addEventListener('click', () => {
+        alert("📞 Contact us at +91 9971323838 or email Tmcollegerohini@gmail.com for admission & demo class.");
+    });
+    // Buttons demo alert
+    document.querySelectorAll('.btn-primary, .btn-outline').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            if(btn.getAttribute('href') === '#') {
+                e.preventDefault();
+                alert("👉 For demo class / franchise query, please call +91 9971323838");
+            }
+        });
+    });
+</script>
+</body>
+</html>
